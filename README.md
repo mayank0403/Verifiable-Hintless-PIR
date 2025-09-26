@@ -114,6 +114,10 @@ This code is a proof-of-concept for an academic work. It should *NOT* be used as
 2. vPIR without honest hint assumption. You can adjust parameters (like increasing primes to allow for larger norm of `Z`) to support this. 
 3. cvPIR.
 
+## Future optimizations for preprocessing
+These optimizations aren't planned yet, but they are noted here to keep a track of them.
+1. Encryption of "C" and decryption of "Z" are operations done by the client, and there are a few optimizations to improve the efficiency. Possible optimizations include leveraging SIMD (currently used only for server-side computation), taking advantage of the fact taht both these operations involve matrix multiplications with *ternary* secret vectors, and replacing the costly Gaussian error sampling in encryption with a centered binomial distribution.
+
 ## Acknowledgement
 This code is built over two separate repositories:
 1. [HintlessPIR](https://github.com/google/hintless_pir/): Efficient standard PIR (semi-honest) without persistent client storage. Commit `4be2ae8`.
